@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Baía Serviços - Calculadora de Preços</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">[Seu Logo Aqui]</div>
+        <h1>Baía Serviços</h1>
+        <nav>
+            <a href="index.html">Calculadora</a>
+            <a href="contato.html">Contato</a>
+            <a href="informacoes.html">Informações</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Calculadora de Preços</h2>
+        <label>Nome do Material:</label>
+        <input type="text" id="nomeMaterial">
+
+        <label>Valor do Material (R$):</label>
+        <input type="number" id="valorMaterial">
+
+        <button onclick="adicionarMaterial()">Adicionar Material</button>
+
+        <ul id="listaMateriais"></ul>
+
+        <label>Margem de Lucro (%):</label>
+        <input type="number" id="margemLucro">
+
+        <label>Valor da Mão de Obra (R$):</label>
+        <input type="number" id="maoDeObra">
+
+        <button onclick="calcularEIrParaResumo()">Calcular e Ver Resumo</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Baía Serviços - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
