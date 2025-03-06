@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Resumo do Serviço - Baía Serviços</title>
+    <title>Resumo do Orçamento - Baía Serviços</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body onload="carregarResumo()">
@@ -11,24 +10,34 @@
     </header>
 
     <main>
-        <h2>Resumo do Serviço</h2>
+        <h2>Orçamento do Serviço</h2>
         <ul id="listaResumo"></ul>
-        <p><strong>Preço Final do Serviço:</strong> R$ <span id="precoFinal"></span></p>
+        <p><strong>Valor Total do Serviço:</strong> R$ <span id="precoFinal"></span></p>
         <a href="index.html">Voltar para a calculadora</a>
     </main>
 
     <script>
         function carregarResumo() {
             const dados = JSON.parse(localStorage.getItem("resumoServico"));
+
+            if (!dados || !dados.materiais) {
+                alert("Nenhum orçamento encontrado.");
+                window.location.href = "index.html";
+                return;
+            }
+
             const lista = document.getElementById("listaResumo");
             lista.innerHTML = "";
+
             dados.materiais.forEach(mat => {
                 const item = document.createElement("li");
-                item.textContent = `${mat.nome}: R$ ${mat.valor.toFixed(2)}`;
+                item.textContent = mat.nome;  // Mostra só o nome do material
                 lista.appendChild(item);
             });
+
             document.getElementById("precoFinal").textContent = dados.precoFinal;
         }
     </script>
 </body>
 </html>
+
